@@ -586,8 +586,13 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .modal-content {
@@ -602,8 +607,15 @@
     }
 
     @keyframes zoomIn {
-      from { transform: scale(0.7); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .modal-caption-text {
@@ -1004,7 +1016,7 @@
           </table>
         </div>
 
-        <!-- SECTION 6: CONCLUSION -->
+        <!-- SECTION 7: CONCLUSION & FUTURE WORK -->
         <div class="section-card gold-accent">
           <div class="section-header">
             <span class="section-number">7</span> Conclusion & Future Work
@@ -1021,6 +1033,31 @@
             <li><strong>Future Scope:</strong> Expand real-time carbon footprint calculation per vehicle route and
               release native mobile apps (iOS/Android).</li>
           </ul>
+        </div>
+
+        <!-- LIVE SYSTEM ACCESS / QR CODE SECTION AFTER CONCLUSION -->
+        <div class="section-card"
+          style="border-left-color: var(--sltc-accent); background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 14px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <div style="text-align: left; flex: 1;">
+              <h4
+                style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--sltc-navy); margin-bottom: 4px;">
+                🔗 Experience Hoteleco-Pro Live
+              </h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0;">
+                Scan the QR code to access the interactive web application, live spatial recommendation engine, and n8n
+                automations.
+              </p>
+            </div>
+            <div class="img-card"
+              style="width: 110px; flex-shrink: 0; padding: 5px; background: #ffffff; border: 2px solid var(--sltc-accent); border-radius: 8px; box-shadow: 0 4px 12px rgba(19, 64, 116, 0.12);">
+              <img src="new ss/17.png" alt="Scan QR Code to Live Platform"
+                style="width: 100%; height: 95px; object-fit: contain; border-radius: 4px;" />
+              <div class="img-caption"
+                style="font-size: 0.62rem; color: var(--sltc-navy); margin-top: 3px; font-weight: 800;">📲 Scan QR Code
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1062,7 +1099,7 @@
         img.addEventListener("click", function () {
           modal.style.display = "block";
           modalImg.src = this.src;
-          
+
           let caption = this.getAttribute("alt") || "Poster Figure Preview";
           let captionElem = this.parentElement.querySelector(".img-caption") || this.parentElement.querySelector(".box-caption");
           if (captionElem && captionElem.innerText) {
