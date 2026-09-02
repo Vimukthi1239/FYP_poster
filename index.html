@@ -388,6 +388,128 @@
       margin-top: 3px;
     }
 
+    /* RESULTS SHOWCASE & COMPACT CATEGORIES (OPTIMIZED FOR A1 PRINT) */
+    .category-box {
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .category-box.blue-theme {
+      background: #f0f9ff;
+      border: 1.5px solid #bae6fd;
+    }
+
+    .category-box.teal-theme {
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+    }
+
+    .category-box.amber-theme {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+    }
+
+    .category-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-blue {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag-teal {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .tag-amber {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .img-card {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 4px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s ease;
+    }
+
+    .img-card img {
+      width: 100%;
+      height: 85px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+      display: block;
+    }
+
+    .img-card.home-featured img {
+      height: 105px;
+    }
+
+    .img-caption {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--sltc-blue);
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .flow-pair-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .flow-mini-card {
+      display: grid;
+      grid-template-columns: 1fr 18px 1fr;
+      align-items: center;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .flow-mini-arrow {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--sltc-accent);
+      font-weight: bold;
+    }
+
     /* FOOTER SECTION */
     .poster-footer {
       border-top: 3px solid #e2e8f0;
@@ -429,6 +551,92 @@
         max-width: none;
         width: 100%;
       }
+
+      .modal-overlay {
+        display: none !important;
+      }
+    }
+
+    /* IMAGE LIGHTBOX POPUP MODAL STYLES */
+    .img-card img,
+    .visual-box img {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .img-card img:hover,
+    .visual-box img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(11, 37, 69, 0.18);
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      z-index: 99999;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(11, 37, 69, 0.88);
+      backdrop-filter: blur(8px);
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 82vh;
+      border-radius: 10px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      border: 3px solid #ffffff;
+      animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-caption-text {
+      margin: 16px auto;
+      display: block;
+      width: 80%;
+      max-width: 750px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      background: rgba(15, 23, 42, 0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #ffffff;
+      font-size: 44px;
+      font-weight: bold;
+      transition: 0.2s;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: #38bdf8;
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -464,7 +672,7 @@
       <!-- TOP RIGHT: ASSIGNED PROJECT NUMBER -->
       <div class="project-no-badge">
         <div class="project-no-label">Project Number</div>
-        <div class="project-no-val">01 Fantastic 4</div>
+        <div class="project-no-val">01</div>
       </div>
     </div>
 
@@ -537,71 +745,15 @@
           </div>
           <p>A hybrid serverless 3-tier architecture designed for high scalability and zero infrastructure overhead:</p>
 
-          <!-- SYSTEM ARCHITECTURE DIAGRAM SVG -->
+          <!-- SYSTEM ARCHITECTURE DIAGRAM -->
           <div class="visual-box">
-            <svg viewBox="0 0 520 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-              <rect x="5" y="5" width="510" height="210" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
-
-              <!-- LAYER 1: FRONTEND -->
-              <rect x="20" y="25" width="140" height="170" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" />
-              <text x="90" y="45" font-family="Arial" font-size="11" font-weight="bold" fill="#1e3a8a"
-                text-anchor="middle">Presentation Layer</text>
-              <rect x="30" y="60" width="120" height="35" rx="5" fill="#ffffff" stroke="#93c5fd" />
-              <text x="90" y="81" font-family="Arial" font-size="10" font-weight="bold" fill="#0f172a"
-                text-anchor="middle">React 19 Client SPA</text>
-              <rect x="30" y="105" width="120" height="35" rx="5" fill="#ffffff" stroke="#93c5fd" />
-              <text x="90" y="126" font-family="Arial" font-size="10" fill="#334155" text-anchor="middle">Mapbox GL /
-                Leaflet</text>
-              <rect x="30" y="150" width="120" height="35" rx="5" fill="#ffffff" stroke="#93c5fd" />
-              <text x="90" y="171" font-family="Arial" font-size="10" fill="#334155" text-anchor="middle">i18next (8
-                Languages)</text>
-
-              <!-- ARROWS 1->2 -->
-              <path d="M 160 80 L 195 80" stroke="#059669" stroke-width="2" marker-end="url(#arrow)" />
-              <path d="M 160 160 L 195 160" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)" />
-
-              <!-- LAYER 2: LOGIC & COMPUTING -->
-              <rect x="195" y="25" width="140" height="170" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" />
-              <text x="265" y="45" font-family="Arial" font-size="11" font-weight="bold" fill="#065f46"
-                text-anchor="middle">Logic & ML Engine</text>
-              <rect x="205" y="60" width="120" height="35" rx="5" fill="#ffffff" stroke="#6ee7b7" />
-              <text x="265" y="81" font-family="Arial" font-size="10" font-weight="bold" fill="#0f172a"
-                text-anchor="middle">FastAPI Python API</text>
-              <rect x="205" y="105" width="120" height="35" rx="5" fill="#ffffff" stroke="#6ee7b7" />
-              <text x="265" y="126" font-family="Arial" font-size="10" font-weight="bold" fill="#047857"
-                text-anchor="middle">Haversine BallTree</text>
-              <rect x="205" y="150" width="120" height="35" rx="5" fill="#ffffff" stroke="#6ee7b7" />
-              <text x="265" y="171" font-family="Arial" font-size="10" fill="#334155" text-anchor="middle">Amadeus
-                Flight API</text>
-
-              <!-- ARROWS 2->3 -->
-              <path d="M 335 80 L 370 80" stroke="#059669" stroke-width="2" />
-              <path d="M 335 160 L 370 160" stroke="#0284c7" stroke-width="2" />
-
-              <!-- LAYER 3: STORAGE & AUTOMATION -->
-              <rect x="370" y="25" width="130" height="170" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
-              <text x="435" y="45" font-family="Arial" font-size="11" font-weight="bold" fill="#92400e"
-                text-anchor="middle">Storage & Automation</text>
-              <rect x="380" y="60" width="110" height="35" rx="5" fill="#ffffff" stroke="#fcd34d" />
-              <text x="435" y="81" font-family="Arial" font-size="10" font-weight="bold" fill="#0f172a"
-                text-anchor="middle">Firebase DB</text>
-              <rect x="380" y="105" width="110" height="35" rx="5" fill="#ffffff" stroke="#fcd34d" />
-              <text x="435" y="126" font-family="Arial" font-size="10" font-weight="bold" fill="#b45309"
-                text-anchor="middle">n8n Workflows</text>
-              <rect x="380" y="150" width="110" height="35" rx="5" fill="#ffffff" stroke="#fcd34d" />
-              <text x="435" y="171" font-family="Arial" font-size="10" fill="#334155" text-anchor="middle">SMTP & PDF
-                Engine</text>
-            </svg>
+            <img src="new ss/12.jpg" alt="System Architecture Diagram"
+              style="width: 100%; height: auto; border-radius: 6px; display: block; margin: 0 auto;" />
             <div class="box-caption">Figure 1: High-Level System Architecture & Flow</div>
           </div>
         </div>
 
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="column">
-
-        <!-- SECTION 4: RESEARCH METHOD - SPATIAL ML ENGINE -->
+        <!-- SECTION 5: RESEARCH METHOD - SPATIAL ML ENGINE -->
         <div class="section-card cyan-accent">
           <div class="section-header">
             <span class="section-number">5</span> Research Method - Spatial ML & Pricing Model
@@ -636,8 +788,7 @@
             <li><strong>Spherical Metric ($r = 6371.0\text{ km}$):</strong> Prevents planar distortion across Sri
               Lanka's geography.</li>
             <li><strong>Thread-Safe Concurrency:</strong> Uses Python <code>threading.RLock()</code> to rebuild spatial
-              trees
-              asynchronously when new SME hotels register without disrupting read requests.</li>
+              trees asynchronously without disrupting read requests.</li>
             <li><strong>Vehicle Route Pricing Equation:</strong>
               <div class="math-formula"
                 style="font-size: 0.92rem; padding: 8px 12px; margin: 6px 0; text-align: center;">
@@ -648,66 +799,172 @@
           </ul>
         </div>
 
-        <!-- SECTION 5: RESULTS AND DISCUSSION -->
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="column">
+
+        <!-- SECTION 6: RESULTS AND SYSTEM IMPLEMENTATION SHOWCASE -->
         <div class="section-card green-accent">
           <div class="section-header">
-            <span class="section-number">6</span> Results and Discussion & Model Performance
+            <span class="section-number">6</span> Results & System Implementation Showcase
           </div>
 
-          <p>Empirical evaluation of system response time, spatial algorithm performance, and SME business impact:</p>
+          <p>System interface implementation, feature modules, and n8n serverless automation results:</p>
+
+          <!-- CATEGORY 1: USER & HOTELIER PORTALS (BLUE THEME) -->
+          <div class="category-box blue-theme">
+            <span class="category-tag tag-blue">🌐 Category 1: User & Hotelier Registration Portals</span>
+
+            <!-- Home Page Featured -->
+            <div class="img-card home-featured" style="margin-bottom: 6px;">
+              <img src="new ss/00.png" alt="Home Page Interface" />
+              <div class="img-caption">Home Page & Eco-Tourism Search Portal (00.png)</div>
+            </div>
+
+            <!-- Hotel Reg Grid -->
+            <div class="img-grid-3">
+              <div class="img-card">
+                <img src="new ss/01.png" alt="Hotel Reg 1" />
+                <div class="img-caption">Hotel Reg #1 (01.png)</div>
+              </div>
+              <div class="img-card">
+                <img src="new ss/02.png" alt="Hotel Reg 2" />
+                <div class="img-caption">Hotel Reg #2 (02.png)</div>
+              </div>
+              <div class="img-card">
+                <img src="new ss/03.png" alt="Hotel Reg 3" />
+                <div class="img-caption">Hotel Reg #3 (03.png)</div>
+              </div>
+            </div>
+
+            <!-- Customer Reg Grid -->
+            <div class="img-grid-3">
+              <div class="img-card">
+                <img src="new ss/04.png" alt="Customer Reg 1" />
+                <div class="img-caption">Customer Reg #1 (04.png)</div>
+              </div>
+              <div class="img-card">
+                <img src="new ss/05.png" alt="Customer Reg 2" />
+                <div class="img-caption">Customer Reg #2 (05.png)</div>
+              </div>
+              <div class="img-card">
+                <img src="new ss/06.png" alt="Customer Reg 3" />
+                <div class="img-caption">Customer Reg #3 (06.png)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY 2: CORE PLATFORM FEATURES & SMART CONTROLS (TEAL THEME) -->
+          <div class="category-box teal-theme">
+            <span class="category-tag tag-teal">⚙️ Category 2: Spatial Proximity, Partner & Smart Room Controls</span>
+            <div class="img-grid-3">
+              <div class="img-card">
+                <img src="new ss/14.png" alt="Travel Partner Portal" />
+                <div class="img-caption">Travel Partner (14.png)</div>
+              </div>
+              <div class="img-card">
+                <img src="new ss/07.png" alt="Nearest Location Search" />
+                <div class="img-caption">Nearest Location (07.png)</div>
+              </div>
+              <div class="img-card">
+                <img src="new ss/16.png" alt="IoT Room Control" />
+                <div class="img-caption">Room Control (16.png)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY 3: N8N AUTOMATION WORKFLOWS & RESULTS (AMBER THEME) -->
+          <div class="category-box amber-theme">
+            <span class="category-tag tag-amber">⚡ Category 3: n8n Serverless Workflows & Executed Results</span>
+
+            <div class="flow-pair-grid">
+              <!-- Flow 1: 09.png -> 13.png -->
+              <div class="flow-mini-card">
+                <div class="img-card">
+                  <img src="new ss/09.png" alt="Workflow 09" />
+                  <div class="img-caption">Workflow (09)</div>
+                </div>
+                <div class="flow-mini-arrow">➔</div>
+                <div class="img-card">
+                  <img src="new ss/13.png" alt="Result 13" />
+                  <div class="img-caption">Result (13)</div>
+                </div>
+              </div>
+
+              <!-- Flow 2: 10.png -> 15.png -->
+              <div class="flow-mini-card">
+                <div class="img-card">
+                  <img src="new ss/10.png" alt="Workflow 10" />
+                  <div class="img-caption">Workflow (10)</div>
+                </div>
+                <div class="flow-mini-arrow">➔</div>
+                <div class="img-card">
+                  <img src="new ss/15.png" alt="Result 15" />
+                  <div class="img-caption">Result (15)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow 3: 11.png -->
+            <div class="img-card" style="margin-top: 4px;">
+              <img src="new ss/11.png" alt="Workflow 11" style="height: 70px;" />
+              <div class="img-caption">n8n Automated Trigger & Notification Workflow (11.png)</div>
+            </div>
+          </div>
 
           <!-- MODEL ACCURACY & LATENCY CHART SVG -->
-          <div class="visual-box">
-            <svg viewBox="0 0 500 160" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0" y="0" width="500" height="160" fill="#ffffff" rx="6" />
+          <div class="visual-box" style="margin: 8px 0;">
+            <svg viewBox="0 0 500 130" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="500" height="130" fill="#ffffff" rx="6" />
 
               <!-- GRID LINES -->
-              <line x1="50" y1="20" x2="480" y2="20" stroke="#f1f5f9" stroke-width="1" />
-              <line x1="50" y1="50" x2="480" y2="50" stroke="#f1f5f9" stroke-width="1" />
-              <line x1="50" y1="80" x2="480" y2="80" stroke="#f1f5f9" stroke-width="1" />
-              <line x1="50" y1="110" x2="480" y2="110" stroke="#cbd5e1" stroke-width="1.5" />
+              <line x1="50" y1="15" x2="480" y2="15" stroke="#f1f5f9" stroke-width="1" />
+              <line x1="50" y1="45" x2="480" y2="45" stroke="#f1f5f9" stroke-width="1" />
+              <line x1="50" y1="75" x2="480" y2="75" stroke="#f1f5f9" stroke-width="1" />
+              <line x1="50" y1="95" x2="480" y2="95" stroke="#cbd5e1" stroke-width="1.5" />
 
               <!-- Y AXIS LABELS -->
-              <text x="40" y="24" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">350 ms</text>
-              <text x="40" y="54" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">200 ms</text>
-              <text x="40" y="84" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">50 ms</text>
-              <text x="40" y="114" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">0 ms</text>
+              <text x="40" y="18" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">350 ms</text>
+              <text x="40" y="48" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">200 ms</text>
+              <text x="40" y="78" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">50 ms</text>
+              <text x="40" y="98" font-family="Arial" font-size="9" fill="#64748b" text-anchor="end">0 ms</text>
 
               <!-- BAR 1: LINEAR SCAN (340ms) -->
-              <rect x="80" y="23" width="70" height="87" fill="#ef4444" rx="4" />
-              <text x="115" y="18" font-family="Arial" font-size="10" font-weight="bold" fill="#dc2626"
+              <rect x="80" y="18" width="70" height="77" fill="#ef4444" rx="4" />
+              <text x="115" y="13" font-family="Arial" font-size="9" font-weight="bold" fill="#dc2626"
                 text-anchor="middle">340 ms</text>
-              <text x="115" y="128" font-family="Arial" font-size="9" font-weight="bold" fill="#334155"
+              <text x="115" y="110" font-family="Arial" font-size="9" font-weight="bold" fill="#334155"
                 text-anchor="middle">Linear Scan O(N)</text>
 
               <!-- BAR 2: HAVERSINE BALLTREE (12.4ms) -->
-              <rect x="210" y="103" width="70" height="7" fill="#10b981" rx="4" />
-              <text x="245" y="96" font-family="Arial" font-size="10" font-weight="bold" fill="#059669"
+              <rect x="210" y="89" width="70" height="6" fill="#10b981" rx="4" />
+              <text x="245" y="82" font-family="Arial" font-size="9" font-weight="bold" fill="#059669"
                 text-anchor="middle">12.4 ms</text>
-              <text x="245" y="128" font-family="Arial" font-size="9" font-weight="bold" fill="#059669"
+              <text x="245" y="110" font-family="Arial" font-size="9" font-weight="bold" fill="#059669"
                 text-anchor="middle">BallTree O(log N)</text>
 
               <!-- BAR 3: NLP INTENT PARSER (94.2%) -->
-              <rect x="340" y="32" width="70" height="78" fill="#0284c7" rx="4" />
-              <text x="375" y="27" font-family="Arial" font-size="10" font-weight="bold" fill="#0284c7"
+              <rect x="340" y="25" width="70" height="70" fill="#0284c7" rx="4" />
+              <text x="375" y="20" font-family="Arial" font-size="9" font-weight="bold" fill="#0284c7"
                 text-anchor="middle">94.2% Acc.</text>
-              <text x="375" y="128" font-family="Arial" font-size="9" font-weight="bold" fill="#334155"
+              <text x="375" y="110" font-family="Arial" font-size="9" font-weight="bold" fill="#334155"
                 text-anchor="middle">Local Intent NLP</text>
             </svg>
-            <div class="box-caption">Figure 2: Spatial Search Latency Comparison & Intent Accuracy</div>
+            <div class="box-caption">Figure 3: Spatial Search Latency Comparison & Intent Accuracy</div>
           </div>
 
           <!-- SME IMPACT SUMMARY METRICS -->
-          <div class="metric-grid">
-            <div class="metric-card">
+          <div class="metric-grid" style="margin-top: 6px;">
+            <div class="metric-card" style="padding: 8px;">
               <div class="metric-num">&lt; 15ms</div>
               <div class="metric-desc">Spatial Query Latency</div>
             </div>
-            <div class="metric-card">
+            <div class="metric-card" style="padding: 8px;">
               <div class="metric-num">0%</div>
               <div class="metric-desc">OTA Commission Fee</div>
             </div>
-            <div class="metric-card">
+            <div class="metric-card" style="padding: 8px;">
               <div class="metric-num">8</div>
               <div class="metric-desc">Global Languages</div>
             </div>
@@ -782,6 +1039,61 @@
     </div>
 
   </div>
+
+  <!-- IMAGE LIGHTBOX POPUP MODAL -->
+  <div id="imageModal" class="modal-overlay">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Enlarged Figure Preview">
+    <div id="modalCaption" class="modal-caption-text"></div>
+  </div>
+
+  <!-- LIGHTBOX SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      const captionText = document.getElementById("modalCaption");
+      const closeBtn = document.getElementsByClassName("modal-close")[0];
+
+      // Attach click event to all poster images
+      const images = document.querySelectorAll(".img-card img, .visual-box img, .sltc-logo-box img");
+
+      images.forEach(img => {
+        img.addEventListener("click", function () {
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          
+          let caption = this.getAttribute("alt") || "Poster Figure Preview";
+          let captionElem = this.parentElement.querySelector(".img-caption") || this.parentElement.querySelector(".box-caption");
+          if (captionElem && captionElem.innerText) {
+            caption = captionElem.innerText;
+          }
+          captionText.innerText = caption;
+        });
+      });
+
+      // Close modal when clicking close button
+      if (closeBtn) {
+        closeBtn.onclick = function () {
+          modal.style.display = "none";
+        };
+      }
+
+      // Close modal when clicking outside the enlarged image
+      modal.onclick = function (e) {
+        if (e.target !== modalImg) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Close modal on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
 
 </body>
 
